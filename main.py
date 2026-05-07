@@ -11,6 +11,7 @@ import yaml
 import finder
 import generator
 import emailer
+import email_finder
 import tracker
 import hosting
 
@@ -63,6 +64,12 @@ def run(args: argparse.Namespace) -> None:
         if not businesses:
             logger.warning("No businesses found — check your Google Maps API key and city name")
             return
+
+    # --- Step 1b: Find emails for businesses that don't have one ---
+    logger.info("Searching for email addresses...")
+    for business in businesses:
+        if not business.get("email"):
+            business["email"] = email_finder.find_email_for_business(business)
 
     # --- Set up hosting ---
     base_url = ""
