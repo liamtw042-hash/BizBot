@@ -1,5 +1,4 @@
-# BizBot Configuration
-# Copy this file and fill in your credentials
+# BizBot Configuration — copy this to config.yaml and fill in your credentials
 
 # Google Maps API Key
 # Get from: https://console.cloud.google.com/

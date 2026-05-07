@@ -1,0 +1,6 @@
+config.yaml
+websites/
+tracker.csv
+__pycache__/
+*.pyc
+.env
