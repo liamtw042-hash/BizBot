@@ -1,0 +1,46 @@
+# BizBot Configuration
+# Copy this file and fill in your credentials
+
+# Google Maps API Key
+# Get from: https://console.cloud.google.com/
+google_maps_api_key: "YOUR_GOOGLE_MAPS_API_KEY"
+
+# Anthropic Claude API Key
+# Get from: https://console.anthropic.com/
+claude_api_key: "YOUR_CLAUDE_API_KEY"
+
+# Gmail credentials
+# Use an App Password (not your real password)
+# Enable at: https://myaccount.google.com/apppasswords
+gmail_address: "you@gmail.com"
+gmail_app_password: "YOUR_GMAIL_APP_PASSWORD"
+
+# Your contact details (shown in cold emails)
+sender_name: "Your Name"
+sender_phone: "0400 000 000"
+sender_website: ""
+
+# Target search settings
+default_city: "Newcastle NSW"
+search_radius_meters: 5000
+max_results_per_search: 20
+
+# Website hosting
+# Options: "local" (run a local server) or "netlify" (deploy to Netlify)
+hosting_mode: "local"
+local_server_port: 8080
+netlify_auth_token: ""
+
+# Business categories to search (Google Maps place types)
+# See: https://developers.google.com/maps/documentation/places/web-service/supported_types
+search_categories:
+  - "restaurant"
+  - "cafe"
+  - "hair_care"
+  - "beauty_salon"
+  - "plumber"
+  - "electrician"
+  - "painter"
+  - "car_repair"
+  - "gym"
+  - "florist"
