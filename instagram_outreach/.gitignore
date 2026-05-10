@@ -1,0 +1,6 @@
+.env
+session_*.json
+outreach_log.csv
+sent_accounts.txt
+__pycache__/
+*.pyc
