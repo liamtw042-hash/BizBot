@@ -16,7 +16,7 @@ class OutreachTracker:
                 writer = csv.writer(f)
                 writer.writerow([
                     "username", "full_name", "followers", "following",
-                    "last_post_date", "dm_sent_at", "status", "notes"
+                    "last_post_date", "dm_sent_at", "status", "notes",
                 ])
 
     def _load_sent(self) -> set:
@@ -28,14 +28,20 @@ class OutreachTracker:
     def already_messaged(self, username: str) -> bool:
         return username in self.sent_accounts
 
-    def log_sent(self, username: str, full_name: str, followers: int,
-                 following: int, last_post_date: str, notes: str = ""):
+    def log_sent(self, user: dict, last_post_date: str, notes: str = ""):
         now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        username = user.get("username", "")
         with open(self.csv_file, "a", newline="") as f:
             writer = csv.writer(f)
             writer.writerow([
-                username, full_name, followers, following,
-                last_post_date, now, "sent", notes
+                username,
+                user.get("full_name", ""),
+                user.get("follower_count", ""),
+                user.get("following_count", ""),
+                last_post_date,
+                now,
+                "sent",
+                notes,
             ])
         with open(self.sent_file, "a") as f:
             f.write(username + "\n")
